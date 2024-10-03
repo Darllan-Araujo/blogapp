@@ -10,8 +10,9 @@
     const flash = require('connect-flash');
     require("./models/Postagem")
     const Postagem = mongoose.model("postagens")
-    //import usuario from './routes/usuario.js'
     const usuarios = require('./routes/usuario')
+    const passport = require('passport')
+    require('./config/auth')(passport)
 
 //CONFIGURAÇÕES
     //Sessão
@@ -20,6 +21,10 @@
             resave: true,
             saveUninitialized: true
         }))
+
+        app.use(passport.initialize())
+        app.use(passport.session())
+
         app.use(flash())
 
     //Middleware
