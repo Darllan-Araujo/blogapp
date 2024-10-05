@@ -16,12 +16,18 @@ REUTILIZAR EM MAIS DE UMA PÁGINA -->
         <li class="nav-item">
           <a class="nav-link" href="/admin/categorias">Categorias</a>
         </li>
+        {{#if user}}
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Login</a>
+          <a class="nav-link" href="/usuarios/logout">Sair da conta</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="/usuarios/login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Registro</a>
+          <a class="nav-link" href="/usuarios/registro">Registro</a>
         </li>
+        {{/if}}
       </ul>
     </div>
   </div>
